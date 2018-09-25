@@ -6,7 +6,7 @@
 /*   By: vnxele <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/08 09:18:01 by vnxele            #+#    #+#             */
-/*   Updated: 2018/06/13 11:42:52 by vnxele           ###   ########.fr       */
+/*   Updated: 2018/06/26 10:20:37 by vnxele           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,15 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#define mapWidth 24
-#define mapHeight 24
+#define mapSize 25
+
+typedef struct		s_read
+{
+	int     i;
+	int     j;
+	int     fd;
+	char    **arr;
+}					t_read;
 
 typedef struct		s_var
 {
@@ -76,4 +83,8 @@ typedef struct		s_mov
 	double		oldDirX;
 	double		oldPlaneX;
 }					t_mov;
+
+void  draw(t_ray *ray, t_var *var);
+void    move(t_var *var, t_ray *ray, t_mov *mov);
+
 #endif
